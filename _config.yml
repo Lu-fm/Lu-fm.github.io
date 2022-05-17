@@ -14,6 +14,7 @@ future: true
 # SNS settings
 RSS: false
 github_username: Lu-fm
+zhihu_username: tekcor_
 #facebook_username:  huxpro
 #linkedin_username:  firstname-lastname-idxxxx
 
@@ -68,12 +69,15 @@ netease_comment: false
 # ba_track_id: [your track id]
 
 
-
-
 # Sidebar settings
+# avatar: 
+#   url: "/img/moon.jpg"
+#   rounded: true
+
+# Site Author
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "我们终将冲出地球, 探索更远的地方"
-sidebar-avatar: ""  # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: "https://raw.githubusercontent.com/Lu-fm/Lu-fm.github.io/master/img/moon.jpg"  # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
