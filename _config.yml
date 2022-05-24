@@ -77,7 +77,7 @@ netease_comment: false
 # Site Author
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "我们终将冲出地球, 探索更远的地方"
-sidebar-avatar: "https://raw.githubusercontent.com/Lu-fm/Lu-fm.github.io/master/img/moon.jpg"  # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: "https://raw.githubusercontent.com/Lu-fm/Lu-fm.github.io/master/img/grogu-luke-skywalker.webp"  # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 

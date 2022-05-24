@@ -86,7 +86,7 @@ $$
    - 在噪声的高斯分布中随机采样, 获得控制指令
 
   $$
-\tilde\delta_{rot1}=sample(\alpha_1|\delta_{rot1}|+\alpha_2|\delta_{trans}|)\cdots
+  \tilde\delta_{rot1}=sample(\alpha_1|\delta_{rot1}|+\alpha_2|\delta_{trans}|)\cdots
   $$
   
    - 利用上述里程运动模型计算$x_t$ 分布
@@ -108,7 +108,7 @@ p(z_t|x_t,m) =p(f_t^1,f_t^2,\cdots,f_t^K|x_t,m) = \Pi_{i=1}^Kp(f_t^i|x_t,m)
 $
 ​将地图特征$m_j$转换到机器人坐标系下即为观测特征真值。
 
-  $$
+$$
     \hat f_t^i = 
     \begin{bmatrix}
     \sqrt{(m_{jx}-x)^2)+(m_{jy}-y)^2}\\
@@ -117,7 +117,7 @@ $
     \end{bmatrix}\\
     
     f_t^i = \hat f_t^i + \tilde \delta_f
-  $$
+$$
 
 
 根据观测误差模型，则
@@ -146,7 +146,7 @@ rand: 随机错误测量
 
 ### EKF自定位法
 
-### 1.KF
+#### 1.KF
 
 - 运动方程
 
@@ -178,12 +178,12 @@ p(x_t|x_{t-1},u_{t-1}) = N(x_t;A_tx_{t-1}+B_t u_{t-1},R_t)
 
   $$
   p(x_t|Z^t,U^{t-1}) = \eta p(z_t|x_t)\overline p(x_t|Z^{t-1},U^{t-1}) \\
-
+  
    p(x_t|Z^t,U^{t-1}) = N(x_t|\mu_t,\Sigma_t)\\
-
+  
    \mu_t = \overline \mu_t+K_t(z_t-C_t\overline \mu_t)\\
    \Sigma_t = [I-K_tC_t]\overline \Sigma_t\\
-
+  
   K_t = \overline \Sigma_tC_t^T(C_t\overline \Sigma_t^T+Q_t)^{-1},新信息矩阵
   $$
 
@@ -197,37 +197,37 @@ p(x_t|x_{t-1},u_{t-1}) = N(x_t;A_tx_{t-1}+B_t u_{t-1},R_t)
 
 采用非线性函数表示运动方程和观测方程，并计算非线性转换后实际概率的高斯近似。
 
-  $$
+$$
     x_t = g(x_{t-1},u_{t-1})+v_t\\
     z_t = h(x_t)+\omega_t
-  $$
+$$
 
 
 用$x_{t-1}$处的一阶泰勒展开近似：
 
-  $$
+$$
     x_t =\approx g(\mu_{t-1},u_{t-1})+(x_{t-1},u_{t-1})G_t+v_t\\
     G_t = \frac{\partial g(x_{t-1},u_{t-1})}{\partial x_{t-1}}|x_{t-     1}=\mu_{t-1}
-  $$
+$$
 
 观测方程也为：
 
-  $$
+$$
     h(x_t)\approx h_(\overline \mu_t)+(x_t-\overline \mu_t)H_t\\
     H_t = \frac{\partial h(x_t)}{\partial x_t}|x_t = \overline \mu_t =   g(\mu_{t-1},u_{t-1})
-  $$
+$$
 
 位姿预估
 
-  $$
+$$
     \overline p(x_t|Z^{t-1},U^{t-1}) = N(x_t;\overline \mu_t,\overline 		\Sigma_t)\\
 	\overline \mu_t = g(\mu_{t-1},u_{t-1})\\
 	\overline \Sigma_t = G_t\Sigma_{t-1}G_t^T+R_t
-  $$
-	
+$$
+
 观测更新：
 
-  $$ 
+$$
 	p(x_t|Z^t,U^{t-1}) = \eta p(z_t|x_t)\overline p(x_t|Z^{t-1},U^{t-1})\\
 
  	p(x_t|Z^t,U^{t-1}) = N(x_t|\mu_t,\Sigma_t)\\
@@ -237,4 +237,4 @@ p(x_t|x_{t-1},u_{t-1}) = N(x_t;A_tx_{t-1}+B_t u_{t-1},R_t)
 	\Sigma_t = [I-K_tH_t]\overline \Sigma_t\\
 
 	K_t = \overline \Sigma_t H_t^T(H_t\overline\Sigma_tH_t^T+Q_t)^{-1}, 新信息矩阵
-  $$
+$$
