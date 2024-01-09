@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Introduction to Nonlinear Optimization"
+title:      "非线性优化概述"
 # subtitle:   " "\The base of everything flying\""
 date:       2023-07-12 19:51:00
 author:     "lufangmin"
